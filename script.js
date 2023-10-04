@@ -7,7 +7,7 @@ function escreverNumero(numero) {
 }
 
 function escreverOperacao(operacao) {
-    resultado.textContent += operacao
+    resultado.textContent += operacao;
 }
 
 function calcular() {
@@ -110,6 +110,38 @@ function calcularLogNatural() {
     }
   }
 }
+
+function atualizarVisor(valor) {
+  resultado.textContent += valor;
+}
+
+function calcularResultado() {
+  try {
+    resultado.textContent = eval(resultado.textContent);
+  } catch (error) {
+    resultado.textContent = 'Erro';
+  }
+}
+
+document.addEventListener('keydown', (event) => {
+  const key = event.key;
+
+  if (/^[0-9\+\-\*\/\(\)\.]+$/.test(key)) {
+    atualizarVisor(key);
+  } else if (key === 'Enter') {
+    calcularResultado();
+  } else if (key === 'Backspace') {
+    resultado.textContent = resultado.textContent.slice(0, -1);
+  } else if (key === 'C') {
+    resultado.textContent = '';
+  }
+});
+
+function limpar() {
+  resultado.textContent = '';
+}
+
+
 //Resgata o id e adciona a função para cada botão
  document.querySelector('#btnRaizQuadrada').addEventListener('click', calcularRaizQuadrada);
  document.querySelector('#btnElevarAoQuadrado').addEventListener('click', calcularPotenciaA2);
@@ -118,10 +150,6 @@ function calcularLogNatural() {
  document.querySelector('#btnLogBase2').addEventListener('click', calcularLogBase2);
  document.querySelector('#btnLogBase10').addEventListener('click', calcularLogBase10);
  document.querySelector('#btnLogNatural').addEventListener('click', calcularLogNatural);
-
-function limpar() {
-  resultado.textContent = '';
-}
 
 // Adiciona eventos de clique aos botões de números e operações
 document.querySelectorAll('.numeros-botoes button').forEach((button) => {
