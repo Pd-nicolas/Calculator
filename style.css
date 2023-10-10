@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.escopo {
+    background-color: #333;
+    border: 1px solid #666;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.resultado {
+    text-align: right;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.numeros-botoes, .operacoes-botoes, .acoes-botoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.operacoes-botoes {
+    margin-top: 10px;
+
+}
+
+.acoes-botoes {
+    margin-top: 10px;
+}
+
+button {
+    padding: 15px; 
+    font-size: 18px;
+    border: 1px solid #555;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #444;
+    color: #fff;
+}
+
+button:contains("=") {
+    grid-column: span 4;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+}
+
+button:contains("<<") {
+    grid-column: span 4;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+}
+
+.numeros-botoes button {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.operacoes-botoes button {
+    background-color: #e67e22;
+    color: #fff;
+}
+
+.acoes-botoes button {
+    background-color: #27ae60;
+    color: #fff;
+}
+
+button:contains("=") {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+button:contains("<<") {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+
